@@ -1,63 +1,64 @@
 #include <stdio.h>
 
-int main (){
+// Movimento da torre
+void moverTorre(int casas) {
+    if (casas == 0) return;
+    printf("Torre andou para direita\n");
+    moverTorre(casas - 1); 
+}
 
+// Movimento da Rainha
+void moverRainha(int casas) {
+    if (casas == 0) return;
+    printf("Rainha andou para esquerda\n");
+    moverRainha(casas - 1);
+}
 
-    //Codigo while para torre
+// Movimento do bispo
+void moverBispo(int linhas, int colunas) {
+    if (linhas == 0) return;
+    for (int j = 0; j < colunas; j++) {
+        printf("Bispo andou para cima/direita\n");
+    }
+    moverBispo(linhas - 1, colunas);
+}
 
-    int i, j;
-
-    char letra;
-
-    i = 1;
-
-    while (i <= 5)
-    {
-        printf("Torre andou para direita\n");
+// Movimento do Cavalo
+void moverCavalo(int movimentos) {
+    int i = 0;
+    while (i < movimentos) {
+        for (int passoVertical = 1; passoVertical <= 2; passoVertical++) {  // Duas casas para cima
+            printf("Cavalo andou para cima\n");
+        }
+        for (int passoHorizontal = 1; passoHorizontal <= 1; passoHorizontal++) {  // Uma casa para direita
+            printf("Cavalo andou para direita\n");
+        }
         i++;
     }
+}
 
+int main() {
+    
+    int casasTorre = 5;
+    int casasBispoLinhas = 3;
+    int casasBispoColunas = 2;
+    int casasRainha = 8;
+    int movimentosCavalo = 1;
+
+    // Movimentos da Torre
+    moverTorre(casasTorre);
     printf("\n");
 
-
-    //Codigo for para Bispo
-    
-    for (int k = 1; k <= 6; k++)
-    {
-       printf("Bispo andou para cima/direita\n", i);
-    }
-    
-     printf("\n");
-
-
-    //Codigo do para Rainha
-
-    i = 1;
-
-    do
-    {
-        printf("Rainha andou para esquerda\n", i);
-        i++;
-
-    } while (i <= 8);
-
+    // Movimentos do Bispo
+    moverBispo(casasBispoLinhas, casasBispoColunas);
     printf("\n");
 
-    //Codigo para o cavalo
+    // Movimentos da Rainha
+    moverRainha(casasRainha);
+    printf("\n");
 
-
-    for (int k = 1; k <= 3; k++) {
-        int j = k;
-        do {
-            if (j <= 2) {
-                printf("Cavalo andou para baixo\n");
-            } else {
-                printf("Cavalo andou para esquerda\n");
-            }
-            j++;
-        } while (j <= k); 
-    }
-
+    // Movimentos do Cavalo
+    moverCavalo(movimentosCavalo);
 
     return 0;
 }
