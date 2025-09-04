@@ -5,7 +5,11 @@ int main (){
 
     //Codigo while para torre
 
-    int i = 1;
+    int i, j;
+
+    char letra;
+
+    i = 1;
 
     while (i <= 5)
     {
@@ -18,9 +22,9 @@ int main (){
 
     //Codigo for para Bispo
     
-    for (int i = 1; i <= 6; i++)
+    for (int k = 1; k <= 6; k++)
     {
-       printf("Bispo andou para cima/direita\n");
+       printf("Bispo andou para cima/direita\n", i);
     }
     
      printf("\n");
@@ -32,10 +36,28 @@ int main (){
 
     do
     {
-        printf("Rainha andou para esquerda\n");
+        printf("Rainha andou para esquerda\n", i);
         i++;
 
     } while (i <= 8);
+
+    printf("\n");
+
+    //Codigo para o cavalo
+
+
+    for (int k = 1; k <= 3; k++) {
+        int j = k;
+        do {
+            if (j <= 2) {
+                printf("Cavalo andou para baixo\n");
+            } else {
+                printf("Cavalo andou para esquerda\n");
+            }
+            j++;
+        } while (j <= k); 
+    }
+
 
     return 0;
 }
